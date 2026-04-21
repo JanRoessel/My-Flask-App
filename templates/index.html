@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>My Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <a href="/add">+ Add New Post</a>
+    <hr>
+
+    {% for post in posts %}
+        <div>
+            <h2>{{ post['title'] }}</h2>
+            <p><strong>Author:</strong> {{ post['author'] }}</p>
+            <p>{{ post['content'] }}</p>
+            <a href="/delete/{{ post['id'] }}">Delete</a>
+            <hr>
+        </div>
+    {% endfor %}
+
+</body>
+</html>
